@@ -1,0 +1,102 @@
+@page "/"
+@using ChildcareCalculator.Domain.Models
+@using ChildcareCalculator.Infrastructure.Data
+@inject ApplicationDbContext DbContext
+
+<PageTitle>Dashboard - Kinderopvangtoeslag Rekentool</PageTitle>
+
+<h1>Dashboard</h1>
+
+<div class="alert alert-info">
+    <strong>Welkom bij de Kinderopvangtoeslag Rekentool</strong>
+    <p>Deze applicatie helpt u bij het doorrekenen van kinderopvangkosten, kinderopvangtoeslag en netto besteedbaar inkomen voor de jaren 2026-2030.</p>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h3>Snelle Start</h3>
+            </div>
+            <div class="card-body">
+                <p>Begin met het aanmaken van een nieuw scenario:</p>
+                <a href="/scenarios/create" class="btn btn-primary">
+                    <span class="oi oi-plus"></span> Nieuw Scenario
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-info text-white">
+                <h3>Recente Scenario's</h3>
+            </div>
+            <div class="card-body">
+                @if (scenarios.Count == 0)
+                {
+                    <p>Er zijn nog geen scenario's aangemaakt.</p>
+                }
+                else
+                {
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Naam</th>
+                                <th>Actief</th>
+                                <th>Acties</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var scenario in scenarios.OrderByDescending(s => s.CreatedAtUtc).Take(5))
+                            {
+                                <tr>
+                                    <td><a href="/scenarios/edit/@scenario.Id">@scenario.Name</a></td>
+                                    <td>@(scenario.IsActive ? "Ja" : "Nee")</td>
+                                    <td>
+                                        <a href="/results?scenarioId=@scenario.Id" class="btn btn-sm btn-outline-primary">
+                                            Resultaten
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <a href="/scenarios" class="btn btn-outline-secondary">Alle scenario's bekijken</a>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header bg-warning text-dark">
+                <h3>Belangrijke Informatie</h3>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-warning">
+                    <strong>Let op:</strong> Deze berekening is een indicatieve schatting en geen definitieve beschikking 
+                    van de Belastingdienst, UWV, werkgever of hypotheekverstrekker.
+                </div>
+                <p>
+                    De applicatie gebruikt de meest recente beschikbare beleidsregels en toeslagtabelen. 
+                    Voor toekomstige jaren (2028-2030) worden voorlopige beleidsaannames gebruikt. 
+                    Deze kunnen nog wijzigen.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private List<HouseholdScenario> scenarios = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        scenarios = await DbContext.HouseholdScenarios
+            .OrderByDescending(s => s.CreatedAtUtc)
+            .ToListAsync();
+    }
+}

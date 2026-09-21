@@ -1,0 +1,29 @@
+@inherits LayoutComponentBase
+
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+    
+    <main class="main">
+        <div class="top-row px-4">
+            <a href="/" class="navbar-brand">Kinderopvangtoeslag Rekentool</a>
+            <button title="Navigation menu" class="navbar-toggler" @onclick="() => ToggleNavMenu()">
+                ☰
+            </button>
+        </div>
+        
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div>
+
+@code {
+    private bool _collapseNavMenu = true;
+
+    private void ToggleNavMenu()
+    {
+        _collapseNavMenu = !_collapseNavMenu;
+    }
+}
