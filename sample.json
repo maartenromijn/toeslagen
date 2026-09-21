@@ -1,0 +1,1089 @@
+{
+  "metadata": {
+    "source_file": "Kinderopvangtoeslag_rekentool_2026-2030_netto_met_bijtelling_en_verlof.xlsx",
+    "export_type": "migration_model",
+    "language": "nl-NL",
+    "currency": "EUR",
+    "years": [
+      2026,
+      2027,
+      2028,
+      2029,
+      2030
+    ],
+    "classification": {
+      "user_input": "door gebruiker aanpasbaar",
+      "policy_assumption": "oranje beleids- of scenarioaanname",
+      "calculated": "afgeleid met formule",
+      "static": "vaste tekst, brongegeven of tabelwaarde"
+    },
+    "formula_status": "reconstructed_from_labels_and_displayed_values",
+    "limitations": [
+      "De aangeleverde tekstextractie bevat geen oorspronkelijke celadressen of letterlijke Excel-formules. Formula expressions hieronder zijn daarom semantisch gereconstrueerd.",
+      "Lege of niet weergegeven berekende waarden zijn als null opgenomen."
+    ],
+    "source_reference": "turn2search2"
+  },
+  "sheets": [
+    "Dashboard",
+    "Invoer",
+    "Inkomen",
+    "Netto basisinkomen",
+    "Hypotheek",
+    "Berekening",
+    "KOT tabel 2026",
+    "Bronnen",
+    "Maarten verlofplan",
+    "Gina verlofplan",
+    "Extra inkomsten",
+    "Verlof",
+    "KOT tabel 2027 voorlopig"
+  ],
+  "inputs": {
+    "opvang": {
+      "opvangweken_per_jaar": {
+        "category": "user_input",
+        "values": {
+          "2027": 49,
+          "2028": 49,
+          "2029": 49,
+          "2030": 49
+        },
+        "unit": "weeks"
+      },
+      "dagen_per_week": {
+        "category": "user_input",
+        "values": {
+          "2027": 3,
+          "2028": 3,
+          "2029": 3,
+          "2030": 3
+        },
+        "unit": "days"
+      },
+      "uren_per_dag": {
+        "category": "user_input",
+        "values": {
+          "2027": 11,
+          "2028": 11,
+          "2029": 11,
+          "2030": 11
+        },
+        "unit": "hours"
+      },
+      "werkelijk_uurtarief": {
+        "category": "user_input",
+        "values": {
+          "2027": 11.8,
+          "2028": 12.27,
+          "2029": 12.76,
+          "2030": 13.27
+        },
+        "unit": "EUR/hour"
+      },
+      "maximum_uurprijs": {
+        "category": "policy_assumption",
+        "values": {
+          "2027": 11.6,
+          "2028": 12.05,
+          "2029": 12.44,
+          "2030": 12.81
+        },
+        "unit": "EUR/hour"
+      }
+    },
+    "woning": {
+      "woz_waarde": {
+        "category": "user_input",
+        "values": {
+          "2027": 700000,
+          "2028": 725000,
+          "2029": 750000,
+          "2030": 775000
+        },
+        "unit": "EUR"
+      },
+      "eigenwoningforfait_percentage": {
+        "category": "policy_assumption",
+        "values": {
+          "2027": 0.0035,
+          "2028": 0.0035,
+          "2029": 0.0035,
+          "2030": 0.0035
+        },
+        "unit": "ratio"
+      },
+      "overige_aftrek_box1": {
+        "category": "user_input",
+        "values": {
+          "2027": 0,
+          "2028": 0,
+          "2029": 0,
+          "2030": 0
+        },
+        "unit": "EUR"
+      }
+    },
+    "beleid": {
+      "indexfactor_inkomensgrenzen": {
+        "category": "policy_assumption",
+        "values": {
+          "2027": 1.03469834323226,
+          "2028": 1.0816,
+          "2029": 1.124864,
+          "2030": 1.16985856
+        },
+        "unit": "factor"
+      },
+      "middeninkomens_opslag": {
+        "category": "policy_assumption",
+        "values": {
+          "2027": 0.051,
+          "2028": 0.1875,
+          "2029": 0,
+          "2030": 0
+        },
+        "unit": "ratio"
+      },
+      "toeslag_override": {
+        "category": "user_input",
+        "values": {
+          "2027": null,
+          "2028": null,
+          "2029": 0.96,
+          "2030": 0.96
+        },
+        "unit": "ratio",
+        "note": "Leeg betekent automatische scenarioformule"
+      }
+    },
+    "personen": {
+      "Maarten": {
+        "bruto_maandsalaris": {
+          "category": "user_input",
+          "values": {
+            "2027": 5842.81,
+            "2028": 6076.52,
+            "2029": 6319.58,
+            "2030": 6572.37
+          },
+          "unit": "EUR/month"
+        },
+        "contracturen_week": {
+          "category": "user_input",
+          "values": {
+            "2027": 40,
+            "2028": 40,
+            "2029": 40,
+            "2030": 40
+          },
+          "unit": "hours/week"
+        },
+        "werkdagen_week": {
+          "category": "user_input",
+          "values": {
+            "2027": 5,
+            "2028": 5,
+            "2029": 5,
+            "2030": 5
+          },
+          "unit": "days/week"
+        },
+        "vakantiegeld_pct": {
+          "category": "user_input",
+          "values": {
+            "2027": 0.08,
+            "2028": 0.08,
+            "2029": 0.08,
+            "2030": 0.08
+          },
+          "unit": "ratio"
+        },
+        "fiscale_bijtelling_auto_pm": {
+          "category": "user_input",
+          "values": {
+            "2027": 689.58,
+            "2028": 689.58,
+            "2029": 689.58,
+            "2030": 689.58
+          },
+          "unit": "EUR/month"
+        },
+        "belaste_autovergoeding_pm": {
+          "category": "user_input",
+          "values": {
+            "2027": 67.01,
+            "2028": 67.01,
+            "2029": 67.01,
+            "2030": 67.01
+          },
+          "unit": "EUR/month"
+        },
+        "winstuitkering_volledig_jaar": {
+          "category": "user_input",
+          "values": {
+            "2027": 4250,
+            "2028": 4250,
+            "2029": 4250,
+            "2030": 4250
+          },
+          "unit": "EUR"
+        },
+        "overwinst_volledig_jaar": {
+          "category": "user_input",
+          "values": {
+            "2027": 4182.13,
+            "2028": 4182.13,
+            "2029": 4182.13,
+            "2030": 4182.13
+          },
+          "unit": "EUR"
+        },
+        "winst_override": {
+          "category": "user_input",
+          "values": {
+            "2027": null,
+            "2028": null,
+            "2029": null,
+            "2030": null
+          },
+          "unit": "EUR"
+        },
+        "overwinst_override": {
+          "category": "user_input",
+          "values": {
+            "2027": null,
+            "2028": null,
+            "2029": null,
+            "2030": null
+          },
+          "unit": "EUR"
+        },
+        "uwv_maximumdagloon": {
+          "category": "policy_assumption",
+          "values": {
+            "2027": 309.91,
+            "2028": 309.91,
+            "2029": 309.91,
+            "2030": 309.91
+          },
+          "unit": "EUR/day"
+        },
+        "uwv_wazo_pct": {
+          "category": "policy_assumption",
+          "values": {
+            "2027": 0.7,
+            "2028": 0.7,
+            "2029": 0.7,
+            "2030": 0.7
+          },
+          "unit": "ratio"
+        },
+        "handmatige_correctie_belastbaar": {
+          "category": "user_input",
+          "values": {
+            "2027": 0,
+            "2028": 0,
+            "2029": 0,
+            "2030": 0
+          },
+          "unit": "EUR"
+        },
+        "pensioenpremie_pm": {
+          "category": "user_input",
+          "values": {
+            "2027": 27.2,
+            "2028": 27.2,
+            "2029": 27.2,
+            "2030": 27.2
+          },
+          "unit": "EUR/month"
+        },
+        "wia_wga_pm": {
+          "category": "user_input",
+          "values": {
+            "2027": 15.8,
+            "2028": 15.8,
+            "2029": 15.8,
+            "2030": 15.8
+          },
+          "unit": "EUR/month"
+        }
+      },
+      "Gina": {
+        "bruto_maandsalaris": {
+          "category": "user_input",
+          "values": {
+            "2027": 3300,
+            "2028": 3450,
+            "2029": 3580,
+            "2030": 3690
+          },
+          "unit": "EUR/month"
+        },
+        "contracturen_week": {
+          "category": "user_input",
+          "values": {
+            "2027": 38,
+            "2028": 38,
+            "2029": 38,
+            "2030": 38
+          },
+          "unit": "hours/week"
+        },
+        "werkdagen_week": {
+          "category": "user_input",
+          "values": {
+            "2027": 5,
+            "2028": 5,
+            "2029": 5,
+            "2030": 5
+          },
+          "unit": "days/week"
+        },
+        "vakantiegeld_pct": {
+          "category": "user_input",
+          "values": {
+            "2027": 0.08,
+            "2028": 0.08,
+            "2029": 0.08,
+            "2030": 0.08
+          },
+          "unit": "ratio"
+        },
+        "fiscale_bijtelling_auto_pm": {
+          "category": "user_input",
+          "values": {
+            "2027": 0,
+            "2028": 0,
+            "2029": 0,
+            "2030": 0
+          },
+          "unit": "EUR/month"
+        },
+        "belaste_vergoedingen_pm": {
+          "category": "user_input",
+          "values": {
+            "2027": 0,
+            "2028": 0,
+            "2029": 0,
+            "2030": 0
+          },
+          "unit": "EUR/month"
+        },
+        "winstuitkering_volledig_jaar": {
+          "category": "user_input",
+          "values": {
+            "2027": 0,
+            "2028": 0,
+            "2029": 0,
+            "2030": 0
+          },
+          "unit": "EUR"
+        },
+        "overwinst_volledig_jaar": {
+          "category": "user_input",
+          "values": {
+            "2027": 0,
+            "2028": 0,
+            "2029": 0,
+            "2030": 0
+          },
+          "unit": "EUR"
+        },
+        "winst_override": {
+          "category": "user_input",
+          "values": {
+            "2027": null,
+            "2028": null,
+            "2029": null,
+            "2030": null
+          },
+          "unit": "EUR"
+        },
+        "overwinst_override": {
+          "category": "user_input",
+          "values": {
+            "2027": null,
+            "2028": null,
+            "2029": null,
+            "2030": null
+          },
+          "unit": "EUR"
+        },
+        "uwv_maximumdagloon": {
+          "category": "policy_assumption",
+          "values": {
+            "2027": 309.91,
+            "2028": 309.91,
+            "2029": 309.91,
+            "2030": 309.91
+          },
+          "unit": "EUR/day"
+        },
+        "uwv_wazo_pct": {
+          "category": "policy_assumption",
+          "values": {
+            "2027": 0.7,
+            "2028": 0.7,
+            "2029": 0.7,
+            "2030": 0.7
+          },
+          "unit": "ratio"
+        },
+        "handmatige_correctie_belastbaar": {
+          "category": "user_input",
+          "values": {
+            "2027": 0,
+            "2028": 0,
+            "2029": 0,
+            "2030": 0
+          },
+          "unit": "EUR"
+        },
+        "premies_pm": {
+          "category": "user_input",
+          "values": {
+            "2027": 0,
+            "2028": 0,
+            "2029": 0,
+            "2030": 0
+          },
+          "unit": "EUR/month"
+        }
+      }
+    }
+  },
+  "mortgage": {
+    "category": "user_input",
+    "peildatum": "2026-09-01",
+    "parts": [
+      {
+        "id": 1,
+        "original_principal": 213500,
+        "outstanding_at_reference": 203878.83,
+        "interest_rate": 0.0378,
+        "regular_payment_month": 992.76,
+        "extra_payment_month": 0,
+        "rate_revision_date": "2034-04-01",
+        "end_date": "2054-04-01"
+      },
+      {
+        "id": 2,
+        "original_principal": 136328,
+        "outstanding_at_reference": 125034.37,
+        "interest_rate": 0.029,
+        "regular_payment_month": 709.28,
+        "extra_payment_month": 0,
+        "rate_revision_date": "2035-11-01",
+        "end_date": "2045-11-01"
+      }
+    ],
+    "calculation": "monthly_annuity_schedule"
+  },
+  "leave_plans": {
+    "Maarten": {
+      "category": "user_input",
+      "contract_hours_week": 40,
+      "max_paid_parental_leave_formula": "9 * contract_hours_week",
+      "child_birth_date": "2026-08-19",
+      "paid_leave_last_date": "2027-08-18",
+      "work_hours_3_days": 24,
+      "work_hours_4_days": 32,
+      "work_hours_after_paid_leave": 36,
+      "phases": [
+        {
+          "phase": 1,
+          "start": "2026-11-19",
+          "end": "2026-12-18",
+          "work_hours_week": 24,
+          "leave_type": "paid_parental",
+          "leave_hours_week": 16,
+          "extra_hours": 0
+        },
+        {
+          "phase": 2,
+          "start": "2026-12-24",
+          "end": "2027-08-12",
+          "work_hours_week": 32,
+          "leave_type": "paid_parental",
+          "leave_hours_week": 8,
+          "extra_hours": 0
+        },
+        {
+          "phase": 3,
+          "start": "2027-08-13",
+          "end": "2027-08-13",
+          "work_hours_week": 24,
+          "leave_type": "paid_parental",
+          "leave_hours_week": 0,
+          "extra_hours": 8
+        },
+        {
+          "phase": 4,
+          "start": "2027-08-19",
+          "end": "2030-11-14",
+          "work_hours_week": 36,
+          "leave_type": "unpaid_parental",
+          "leave_hours_week": 4,
+          "extra_hours": 0
+        }
+      ]
+    },
+    "Gina": {
+      "category": "user_input",
+      "contract_hours_week": 38,
+      "max_paid_parental_leave_formula": "9 * contract_hours_week",
+      "child_birth_date": "2026-08-19",
+      "paid_leave_last_date": "2027-08-18",
+      "work_hours_3_days": 24,
+      "work_hours_4_days": 32,
+      "work_hours_after_paid_leave": 36,
+      "phases": [
+        {
+          "phase": 1,
+          "start": "2026-11-15",
+          "end": "2027-01-14",
+          "work_hours_week": 24,
+          "leave_type": "paid_parental"
+        },
+        {
+          "phase": 2,
+          "start": "2027-01-15",
+          "end": "2027-08-18",
+          "work_hours_week": 32,
+          "leave_type": "paid_parental"
+        },
+        {
+          "phase": 3,
+          "start": "2027-08-19",
+          "end": "2030-12-31",
+          "work_hours_week": 36,
+          "leave_type": "unpaid_parental"
+        }
+      ]
+    }
+  },
+  "extra_income": {
+    "category": "user_input",
+    "rows": [
+      {
+        "year": 2027,
+        "person": "Maarten",
+        "description": "Extra 1",
+        "taxable_amount": 0,
+        "include": true
+      },
+      {
+        "year": 2027,
+        "person": "Maarten",
+        "description": "Extra 2",
+        "taxable_amount": 0,
+        "include": true
+      },
+      {
+        "year": 2027,
+        "person": "Maarten",
+        "description": "Extra 3",
+        "taxable_amount": 0,
+        "include": true
+      },
+      {
+        "year": 2027,
+        "person": "Maarten",
+        "description": "Extra 4",
+        "taxable_amount": 0,
+        "include": true
+      },
+      {
+        "year": 2027,
+        "person": "Gina",
+        "description": "Extra 1",
+        "taxable_amount": 0,
+        "include": true
+      },
+      {
+        "year": 2027,
+        "person": "Gina",
+        "description": "Extra 2",
+        "taxable_amount": 0,
+        "include": true
+      },
+      {
+        "year": 2027,
+        "person": "Gina",
+        "description": "Extra 3",
+        "taxable_amount": 0,
+        "include": true
+      },
+      {
+        "year": 2027,
+        "person": "Gina",
+        "description": "Extra 4",
+        "taxable_amount": 0,
+        "include": true
+      },
+      {
+        "year": 2028,
+        "person": "Maarten",
+        "description": "Extra 1",
+        "taxable_amount": 0,
+        "include": true
+      },
+      {
+        "year": 2028,
+        "person": "Maarten",
+        "description": "Extra 2",
+        "taxable_amount": 0,
+        "include": true
+      },
+      {
+        "year": 2028,
+        "person": "Maarten",
+        "description": "Extra 3",
+        "taxable_amount": 0,
+        "include": true
+      },
+      {
+        "year": 2028,
+        "person": "Maarten",
+        "description": "Extra 4",
+        "taxable_amount": 0,
+        "include": true
+      },
+      {
+        "year": 2028,
+        "person": "Gina",
+        "description": "Extra 1",
+        "taxable_amount": 0,
+        "include": true
+      },
+      {
+        "year": 2028,
+        "person": "Gina",
+        "description": "Extra 2",
+        "taxable_amount": 0,
+        "include": true
+      },
+      {
+        "year": 2028,
+        "person": "Gina",
+        "description": "Extra 3",
+        "taxable_amount": 0,
+        "include": true
+      },
+      {
+        "year": 2028,
+        "person": "Gina",
+        "description": "Extra 4",
+        "taxable_amount": 0,
+        "include": true
+      },
+      {
+        "year": 2029,
+        "person": "Maarten",
+        "description": "Extra 1",
+        "taxable_amount": 0,
+        "include": true
+      },
+      {
+        "year": 2029,
+        "person": "Maarten",
+        "description": "Extra 2",
+        "taxable_amount": 0,
+        "include": true
+      },
+      {
+        "year": 2029,
+        "person": "Maarten",
+        "description": "Extra 3",
+        "taxable_amount": 0,
+        "include": true
+      },
+      {
+        "year": 2029,
+        "person": "Maarten",
+        "description": "Extra 4",
+        "taxable_amount": 0,
+        "include": true
+      },
+      {
+        "year": 2029,
+        "person": "Gina",
+        "description": "Extra 1",
+        "taxable_amount": 0,
+        "include": true
+      },
+      {
+        "year": 2029,
+        "person": "Gina",
+        "description": "Extra 2",
+        "taxable_amount": 0,
+        "include": true
+      },
+      {
+        "year": 2029,
+        "person": "Gina",
+        "description": "Extra 3",
+        "taxable_amount": 0,
+        "include": true
+      },
+      {
+        "year": 2029,
+        "person": "Gina",
+        "description": "Extra 4",
+        "taxable_amount": 0,
+        "include": true
+      },
+      {
+        "year": 2030,
+        "person": "Maarten",
+        "description": "Extra 1",
+        "taxable_amount": 0,
+        "include": true
+      },
+      {
+        "year": 2030,
+        "person": "Maarten",
+        "description": "Extra 2",
+        "taxable_amount": 0,
+        "include": true
+      },
+      {
+        "year": 2030,
+        "person": "Maarten",
+        "description": "Extra 3",
+        "taxable_amount": 0,
+        "include": true
+      },
+      {
+        "year": 2030,
+        "person": "Maarten",
+        "description": "Extra 4",
+        "taxable_amount": 0,
+        "include": true
+      },
+      {
+        "year": 2030,
+        "person": "Gina",
+        "description": "Extra 1",
+        "taxable_amount": 0,
+        "include": true
+      },
+      {
+        "year": 2030,
+        "person": "Gina",
+        "description": "Extra 2",
+        "taxable_amount": 0,
+        "include": true
+      },
+      {
+        "year": 2030,
+        "person": "Gina",
+        "description": "Extra 3",
+        "taxable_amount": 0,
+        "include": true
+      },
+      {
+        "year": 2030,
+        "person": "Gina",
+        "description": "Extra 4",
+        "taxable_amount": 0,
+        "include": true
+      }
+    ]
+  },
+  "static_parameters": {
+    "net_income_tax_model": {
+      "years": [
+        2026,
+        2027,
+        2028,
+        2029,
+        2030
+      ],
+      "bracket_1_limit": [
+        38883,
+        39247,
+        39247,
+        39247,
+        39247
+      ],
+      "bracket_2_limit": [
+        78426,
+        78426,
+        78426,
+        78426,
+        78426
+      ],
+      "rate_1": [
+        0.3575,
+        0.3623,
+        0.3623,
+        0.3623,
+        0.3623
+      ],
+      "rate_2": [
+        0.3756,
+        0.3816,
+        0.3816,
+        0.3816,
+        0.3816
+      ],
+      "rate_3": [
+        0.495,
+        0.495,
+        0.495,
+        0.495,
+        0.495
+      ],
+      "general_tax_credit_max": [
+        3115,
+        3154,
+        3154,
+        3154,
+        3154
+      ],
+      "general_tax_credit_phaseout_start": [
+        29736,
+        30912,
+        30912,
+        30912,
+        30912
+      ],
+      "general_tax_credit_phaseout_rate": [
+        0.06398,
+        0.06638,
+        0.06638,
+        0.06638,
+        0.06638
+      ],
+      "employment_credit_limits": [
+        11965,
+        25845,
+        45592
+      ],
+      "employment_credit_max_phaseout_start": [
+        5685,
+        5929,
+        5929,
+        5929,
+        5929
+      ],
+      "employment_credit_phaseout_start": [
+        45592,
+        47834,
+        47834,
+        47834,
+        47834
+      ],
+      "employment_credit_phaseout_rate": [
+        0.0651,
+        0.0651,
+        0.0651,
+        0.0651,
+        0.0651
+      ],
+      "employment_credit_pct_1": [
+        0.08324,
+        0.08324,
+        0.08324,
+        0.08324,
+        0.08324
+      ],
+      "employment_credit_amount_1": [
+        996,
+        996,
+        996,
+        996,
+        996
+      ],
+      "employment_credit_pct_2": [
+        0.31009,
+        0.31009,
+        0.31009,
+        0.31009,
+        0.31009
+      ],
+      "employment_credit_amount_2": [
+        5300,
+        5300,
+        5300,
+        5300,
+        5300
+      ],
+      "employment_credit_pct_3": [
+        0.0195,
+        0.0195,
+        0.0195,
+        0.0195,
+        0.0195
+      ],
+      "employment_credit_correction_2027_plus": [
+        0,
+        244,
+        244,
+        244,
+        244
+      ]
+    },
+    "kot_2026_table_note": "Volledige officiële staffel staat in bronwerkblad KOT tabel 2026; 71 inkomensbanden, eerste en volgende kind.",
+    "kot_2027_table_note": "Voorlopige gereconstrueerde staffel; <=71903 96%, 71904-175430 2026-basis + 5.1 procentpunt, >175430 2026-basis + 2.6 procentpunt."
+  },
+  "formulas": [
+    {
+      "id": "annual_contract_hours",
+      "category": "calculated",
+      "expression": "contract_hours_week * 52",
+      "inputs": [
+        "contract_hours_week"
+      ]
+    },
+    {
+      "id": "normal_daily_wage",
+      "category": "calculated",
+      "expression": "monthly_salary * 12 * (1 + holiday_allowance_pct) / 261",
+      "inputs": [
+        "monthly_salary",
+        "holiday_allowance_pct"
+      ]
+    },
+    {
+      "id": "wazo_daily_benefit",
+      "category": "calculated",
+      "expression": "min(normal_daily_wage, uwv_maximum_daily_wage) * uwv_wazo_pct"
+    },
+    {
+      "id": "wazo_replacement_ratio",
+      "category": "calculated",
+      "expression": "wazo_daily_benefit / normal_daily_wage"
+    },
+    {
+      "id": "salary_after_leave",
+      "category": "calculated",
+      "expression": "annual_salary * (1 - unpaid_leave_hours / annual_contract_hours - paid_wazo_hours / annual_contract_hours) + paid_wazo_hours / hours_per_day * wazo_daily_benefit"
+    },
+    {
+      "id": "profit_factor_after_leave",
+      "category": "calculated",
+      "expression": "1 - unpaid_leave_hours / annual_contract_hours - paid_wazo_hours / annual_contract_hours * (1 - wazo_replacement_ratio)"
+    },
+    {
+      "id": "excess_profit_factor_after_leave",
+      "category": "calculated",
+      "expression": "1 - (unpaid_leave_hours + paid_wazo_hours) / annual_contract_hours"
+    },
+    {
+      "id": "taxable_income_before_home",
+      "category": "calculated",
+      "expression": "employer_salary_after_leave + holiday_allowance + wazo_benefit + car_benefit*12 + taxable_allowance*12 + profit_after_leave + excess_profit_after_leave + other_taxable_income + manual_correction - employee_pension - employee_wia"
+    },
+    {
+      "id": "mortgage_monthly_interest",
+      "category": "calculated",
+      "expression": "opening_balance * annual_interest_rate / 12"
+    },
+    {
+      "id": "mortgage_monthly_principal",
+      "category": "calculated",
+      "expression": "min(opening_balance, regular_payment + extra_payment - monthly_interest)"
+    },
+    {
+      "id": "mortgage_closing_balance",
+      "category": "calculated",
+      "expression": "opening_balance - monthly_principal"
+    },
+    {
+      "id": "mortgage_average_balance_year",
+      "category": "calculated",
+      "expression": "average(monthly_opening_balance, monthly_closing_balance)"
+    },
+    {
+      "id": "home_imputed_income",
+      "category": "calculated",
+      "expression": "woz_value * imputed_rental_value_pct"
+    },
+    {
+      "id": "home_balance",
+      "category": "calculated",
+      "expression": "home_imputed_income - deductible_mortgage_interest"
+    },
+    {
+      "id": "assessment_income",
+      "category": "calculated",
+      "expression": "person1_taxable_income + person2_taxable_income + home_imputed_income - deductible_mortgage_interest - other_box1_deductions"
+    },
+    {
+      "id": "income_at_2026_boundaries",
+      "category": "calculated",
+      "expression": "assessment_income / income_boundary_index_factor"
+    },
+    {
+      "id": "base_kot_percentage",
+      "category": "calculated",
+      "expression": "lookup_band(income_at_2026_boundaries, kot_2026_table.first_child)"
+    },
+    {
+      "id": "automatic_kot_percentage",
+      "category": "calculated",
+      "expression": "year == 2027 ? (assessment_income <= 71903 ? 0.96 : min(0.96, base_kot_percentage + (assessment_income <= 175430 ? 0.051 : 0.026))) : min(0.96, base_kot_percentage + policy_surcharge)"
+    },
+    {
+      "id": "used_kot_percentage",
+      "category": "calculated",
+      "expression": "coalesce(kot_percentage_override, automatic_kot_percentage)"
+    },
+    {
+      "id": "childcare_hours_year",
+      "category": "calculated",
+      "expression": "childcare_weeks * days_per_week * hours_per_day"
+    },
+    {
+      "id": "actual_childcare_cost",
+      "category": "calculated",
+      "expression": "childcare_hours_year * actual_hourly_rate"
+    },
+    {
+      "id": "eligible_childcare_cost",
+      "category": "calculated",
+      "expression": "childcare_hours_year * min(actual_hourly_rate, maximum_hourly_rate)"
+    },
+    {
+      "id": "childcare_allowance",
+      "category": "calculated",
+      "expression": "eligible_childcare_cost * used_kot_percentage"
+    },
+    {
+      "id": "own_contribution_year",
+      "category": "calculated",
+      "expression": "actual_childcare_cost - childcare_allowance"
+    },
+    {
+      "id": "own_contribution_month",
+      "category": "calculated",
+      "expression": "own_contribution_year / 12"
+    }
+  ],
+  "sources": [
+    {
+      "subject": "2026 toeslagtabel en maximum uurprijs",
+      "organization": "Rijksoverheid",
+      "url": "https://www.rijksoverheid.nl/themas/belastingen-uitkeringen-en-toeslagen/kinderopvangtoeslag/bedragen-kinderopvangtoeslag-2026"
+    },
+    {
+      "subject": "maximum uurprijzen 2027",
+      "organization": "SZW-begroting",
+      "url": "https://zoek.officielebekendmakingen.nl/kst-36725-3.html"
+    },
+    {
+      "subject": "doel nieuw stelsel 2029",
+      "organization": "Rijksoverheid",
+      "url": "https://www.rijksoverheid.nl/actueel/nieuws/2025/04/25/kabinet-zet-nieuwe-stap-naar-bijna-gratis-kinderopvang-voor-werkende-ouders"
+    },
+    {
+      "subject": "maximumdagloon",
+      "organization": "UWV",
+      "url": "https://www.uwv.nl/nl/premies-bedragen/maximum-dagloon"
+    }
+  ]
+}
